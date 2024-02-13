@@ -84,6 +84,30 @@ Installing the cli tool
 
 `npm i -g @nestjs/cli`
 
+
 Scaffolding your app
 
 `nest new APP_NAME`
+
+
+Creating a new module
+
+`nest generate module MODULE_NAME`
+
+
+Creating a new controller
+
+`nest g controller MODULE_NAME`
+
+
+Creating a new service
+
+`nest g service MODULE_NAME`
+
+
+
+Adding Swagger for testing API and it will also act as Documentation
+
+`npm i --save @nestjs/swagger swagger-ui-express`
+
+And then make changes in main.ts to setup swagger
