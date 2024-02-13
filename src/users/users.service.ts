@@ -1,14 +1,20 @@
 import { Injectable } from '@nestjs/common';
-import { CreateUser, User } from './users.state';
+import { CreateUser, User } from './users.dto';
 
 @Injectable()
 export class UsersService {
   private users: User[] = [
     { id: 0, name: 'luffy' },
-    { id: 1, name: 'Zoro' },
+    { id: 1, name: 'zoro' },
+    { id: 2, name: 'nami' },
+    { id: 3, name: 'sanji' },
+    { id: 4, name: 'ussopp' },
   ];
 
-  findAll(): User[] {
+  findAll(name?: string): User[] {
+    if (name) {
+      return this.users.filter(user => user.name === name);
+    }
     return this.users;
   }
 
