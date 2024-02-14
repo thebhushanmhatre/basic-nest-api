@@ -111,3 +111,11 @@ Adding Swagger for testing API and it will also act as Documentation
 `npm i --save @nestjs/swagger swagger-ui-express`
 
 And then make changes in main.ts to setup swagger
+
+
+
+Using CLI to generate CRUD
+
+`nest g resource RESOURCE_NAME`
+
+
