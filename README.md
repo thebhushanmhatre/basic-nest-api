@@ -84,27 +84,21 @@ Installing the cli tool
 
 `npm i -g @nestjs/cli`
 
-
 Scaffolding your app
 
 `nest new APP_NAME`
-
 
 Creating a new module
 
 `nest generate module MODULE_NAME`
 
-
 Creating a new controller
 
 `nest g controller MODULE_NAME`
 
-
 Creating a new service
 
 `nest g service MODULE_NAME`
-
-
 
 Adding Swagger for testing API and it will also act as Documentation
 
@@ -112,10 +106,16 @@ Adding Swagger for testing API and it will also act as Documentation
 
 And then make changes in main.ts to setup swagger
 
-
-
 Using CLI to generate CRUD
 
 `nest g resource RESOURCE_NAME`
 
+Authentication using passport
 
+`npm i --save @nestjs/passport passport passport-local`
+`npm i --save-dev @types/passport-local`
+
+
+`nest g module auth`
+`nest g service auth`
+`npm i express-session`
