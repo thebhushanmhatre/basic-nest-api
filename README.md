@@ -80,42 +80,58 @@ Above portion was default Redme file that was generated and following are mine
 
 <hr>
 
-Installing the cli tool
+```js
+// Installing the cli tool
+npm i -g @nestjs/cli
 
-`npm i -g @nestjs/cli`
+// Scaffolding your app
+nest new APP_NAME
 
-Scaffolding your app
+// Creating a new module
+nest generate module MODULE_NAME
 
-`nest new APP_NAME`
+// Creating a new controller
+nest g controller MODULE_NAME
 
-Creating a new module
+// Creating a new service
+nest g service MODULE_NAME
 
-`nest generate module MODULE_NAME`
+// Adding Swagger for testing API and it will also act as Documentation
+npm i --save @nestjs/swagger swagger-ui-express
 
-Creating a new controller
-
-`nest g controller MODULE_NAME`
-
-Creating a new service
-
-`nest g service MODULE_NAME`
-
-Adding Swagger for testing API and it will also act as Documentation
-
-`npm i --save @nestjs/swagger swagger-ui-express`
-
-And then make changes in main.ts to setup swagger
-
-Using CLI to generate CRUD
-
-`nest g resource RESOURCE_NAME`
+// And then make changes in main.ts to setup swagger
+// Using CLI to generate CRUD
+nest g resource RESOURCE_NAME
+```
 
 Authentication using passport
 
-`npm i --save @nestjs/passport passport passport-local`
-`npm i --save-dev @types/passport-local`
+```js
+npm i --save @nestjs/passport passport passport-local
+npm i --save-dev @types/passport-local
+nest g module auth
+nest g service auth
+npm i express-session
+```
+
+Order of execution for authenticating, Calling POST /login
+
+```js
+In local strategy, constructor // During code compilation
+
+In local-auth.guard
+In local-auth.guard, before super.canActivate
+In local strategy, validate
+In AuthService, validateUser
+In local-auth.guard, after super.canActivate
+In local-auth.guard, before super.logIn
+In sessionSerializer, serialize
+In local-auth.guard, after super.logIn
 
 
-`nest g module auth`
-`nest g service auth`
-`npm i express-session`
+In app.controller
+In sessionSerializer, deserialize
+In AuthenticatedGuard, CanActivate
+In sessionSerializer, deserialize
+In AuthenticatedGuard, CanActivate
+```
