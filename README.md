@@ -135,3 +135,25 @@ In AuthenticatedGuard, CanActivate
 In sessionSerializer, deserialize
 In AuthenticatedGuard, CanActivate
 ```
+
+Login using JWT
+
+```
+npm i --save @nestjs/jwt passport-jwt
+
+```
+
+Order of execution for authenticating, Calling POST /login
+
+```js
+In Jwt.strategy, constructor, before super // During code compilation
+In Jwt.strategy, constructor, after super // During code compilation
+
+// POST login
+In Auth Service, validateUser
+In App controller, login
+In Auth Service, login
+
+// GET protected
+In Jwt.strategy, validate
+```
